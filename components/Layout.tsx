@@ -95,11 +95,20 @@ export const Header: React.FC<{ onPageChange: (page: string) => void; currentPag
       onPageChange('home');
       setTimeout(() => {
         const target = document.querySelector(`#${id}`);
-        if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+        if (target) {
+            const yOffset = -80;
+            const element = target;
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({top: y, behavior: 'smooth'});
+        }
       }, 300);
     } else {
       const target = document.querySelector(`#${id}`);
-      if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+      if (target) {
+        const yOffset = -80;
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
+      }
     }
   };
 
@@ -123,7 +132,7 @@ export const Header: React.FC<{ onPageChange: (page: string) => void; currentPag
                 whileHover={{ scale: 1.05 }}
                 src="https://zorai.io/wp-content/uploads/2025/12/logo-vyra-luxury-marrakech.png" 
                 alt="Vyra" 
-                className="h-14 md:h-18 transition-all duration-700 brightness-0 invert drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" 
+                className="h-16 md:h-20 transition-all duration-700 brightness-0 invert drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" 
               />
             </a>
           </div>
@@ -171,7 +180,7 @@ export const Footer: React.FC<{ onPageChange: (page: string) => void }> = ({ onP
     <>
       <footer className="bg-luxury-dark text-white pt-24 pb-12 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-luxury-gold/30 to-transparent"></div>
-        <div className="container mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+        <div className="container mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-16 relative z-10">
           {/* Column 1: Brand */}
           <div className="space-y-8">
             <img src="https://zorai.io/wp-content/uploads/2025/12/logo-vyra-luxury-marrakech.png" alt="Vyra" className="h-10 brightness-0 invert" />
@@ -213,7 +222,7 @@ export const Footer: React.FC<{ onPageChange: (page: string) => void }> = ({ onP
             <ul className="space-y-4 text-gray-400 font-light text-sm">
               <li className="flex items-start"><i className="fas fa-map-marker-alt text-luxury-gold mt-1 mr-4"></i> Marrakech, Morocco</li>
               <li className="flex items-start"><i className="fas fa-phone text-luxury-gold mt-1 mr-4"></i> +212 661 111 525</li>
-              <li className="flex items-start"><i className="fas fa-envelope text-luxury-gold mt-1 mr-4"></i> concierge@vyra.ma</li>
+              <li className="flex items-start"><i className="fas fa-envelope text-luxury-gold mt-1 mr-4"></i> contact@vyra.ma</li>
             </ul>
           </div>
         </div>

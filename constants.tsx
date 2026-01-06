@@ -73,19 +73,19 @@ export const FAQS = [
 
 export const PARTNERS = [
   {
-    name: "Luxury Hotels & Palaces",
-    desc: "We collaborate with Marrakech's most prestigious resorts to provide seamless 'door-to-room' logistics for VIP guests."
+    name: "Luxury DMCs",
+    desc: "Destination Management Companies creating bespoke Moroccan itineraries for high-net-worth travelers."
   },
   {
-    name: "Private Aviation Operators",
-    desc: "Exclusive tarmac-side pick-up arrangements with private jet FBOs at Marrakech Menara Airport."
+    name: "Wedding Planners",
+    desc: "Specialists in destination weddings and luxury events requiring elegant guest transportation."
   },
   {
-    name: "Destination Management Companies",
-    desc: "Strategic partnerships with global travel agencies to deliver world-class Moroccan itineraries."
+    name: "Corporate Agencies",
+    desc: "Providing executive transportation for business meetings, conferences, and incentive trips."
   },
   {
-    name: "Event & Wedding Designers",
-    desc: "The preferred transportation partner for international event planners hosting luxury weddings in Morocco."
+    name: "Luxury Hotels",
+    desc: "Five-star properties seeking premium transportation partners for their discerning guests."
   }
 ];

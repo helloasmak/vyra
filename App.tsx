@@ -214,7 +214,7 @@ const PartnersPage = () => (
         </div>
       </div>
 
-      {/* Application Form Section */}
+      {/* Application Form Section - Redesigned for Elegance */}
       <div id="partner-form" className="py-24 max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-luxury-gold text-[10px] uppercase tracking-[0.6em] font-black block mb-4">Official Inquiry</span>
@@ -312,7 +312,7 @@ const SupportPage = () => (
         {[
           { icon: 'fas fa-phone', title: 'Voice', detail: '+212 661 111 525', sub: '24/7 Priority' },
           { icon: 'fab fa-whatsapp', title: 'WhatsApp', detail: 'Instant Liaison', sub: 'Direct updates', link: 'https://wa.me/212661111525' },
-          { icon: 'fas fa-envelope', title: 'Digital', detail: 'concierge@vyra.ma', sub: 'Private Response' }
+          { icon: 'fas fa-envelope', title: 'Digital', detail: 'contact@vyra.ma', sub: 'Private Response' }
         ].map((item, i) => (
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} key={i} className="bg-white p-12 rounded-[4rem] shadow-xl border border-gray-50 flex flex-col items-center gap-8 group hover:translate-y-[-5px] transition-all duration-700">
             <div className="w-16 h-16 gold-gradient rounded-full flex items-center justify-center text-white text-2xl shadow-xl"><i className={`${item.icon}`}></i></div>
