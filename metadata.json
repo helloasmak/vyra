@@ -1,0 +1,8 @@
+{
+  "name": "Vyra Luxury Marrakech",
+  "description": "A premium React-based chauffeur and car rental platform for Marrakech, featuring AI-powered concierge services, luxury fleet showcases, and high-conversion booking flows.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

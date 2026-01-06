@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VYRA | Luxury Chauffeur & VIP Concierge Marrakech</title>
+    <meta name="description" content="Experience the ultimate in high-end mobility. Vyra Luxury Marrakech offers elite chauffeur services, VIP airport transfers, and curated Moroccan journeys.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'luxury-dark': '#071616',
+              'luxury-gold': '#9d6f29',
+              'luxury-beige': '#fdfbf7',
+              'luxury-cream': '#e8e2d6',
+            },
+            fontFamily: {
+              'serif': ['"Cormorant Garamond"', 'serif'],
+              'sans': ['Montserrat', 'sans-serif'],
+            },
+            letterSpacing: {
+              'widest-luxury': '0.5em',
+            },
+            animation: {
+              'reveal': 'reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards',
+              'slow-spin': 'spin 12s linear infinite',
+            },
+            keyframes: {
+              reveal: {
+                '0%': { transform: 'translateY(100%)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --gold: #9d6f29;
+      }
+      * {
+        cursor: none !important;
+      }
+      html { 
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: var(--gold) #071616;
+      }
+      body { 
+        background-color: #071616;
+        color: #fdfbf7;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      /* Noise Overlay for High-End Texture */
+      .noise-bg::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://grainy-gradients.vercel.app/noise.svg');
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      .custom-cursor {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: var(--gold);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.15s ease-out;
+        mix-blend-mode: difference;
+      }
+      .custom-cursor-follower {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(157, 111, 41, 0.4);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transition: transform 0.25s ease-out, background 0.3s ease;
+      }
+      
+      .cursor-hover .custom-cursor-follower {
+        transform: translate(-50%, -50%) scale(1.8);
+        background: rgba(157, 111, 41, 0.15);
+        border: 1px solid var(--gold);
+      }
+
+      .glass-effect {
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        background: rgba(7, 22, 22, 0.9);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .gold-gradient {
+        background: linear-gradient(135deg, #9d6f29 0%, #c5a059 50%, #9d6f29 100%);
+        background-size: 200% 200%;
+      }
+
+      @media (max-width: 768px) {
+        * { cursor: auto !important; }
+        .custom-cursor, .custom-cursor-follower { display: none; }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "framer-motion": "https://esm.sh/framer-motion@^11.11.17",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+</head>
+<body class="font-sans noise-bg">
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-follower" id="follower"></div>
+    <div id="root"></div>
+    <script>
+      const cursor = document.getElementById('cursor');
+      const follower = document.getElementById('follower');
+      
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursor.style.transform = 'translate(-50%, -50%)';
+        
+        follower.style.left = e.clientX + 'px';
+        follower.style.top = e.clientY + 'px';
+        follower.style.transform = 'translate(-50%, -50%)';
+      });
+
+      document.addEventListener('mousedown', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(0.6)';
+        follower.style.transform = 'translate(-50%, -50%) scale(0.8)';
+      });
+      document.addEventListener('mouseup', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        follower.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+
+      const interactives = 'a, button, select, input, textarea, .interactive, .read-more-btn';
+      document.addEventListener('mouseover', (e) => {
+        if (e.target.closest(interactives)) {
+          document.body.classList.add('cursor-hover');
+        }
+      });
+      document.addEventListener('mouseout', (e) => {
+        if (e.target.closest(interactives)) {
+          document.body.classList.remove('cursor-hover');
+        }
+      });
+    </script>
+</body>
+</html>
