@@ -1,9 +1,25 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Vercel injects process.env.API_KEY, but Vite needs a way to access it client-side.
+// We use a safe accessor to prevent build crashes.
+const getApiKey = () => {
+  try {
+    return process.env.API_KEY || "";
+  } catch {
+    return "";
+  }
+};
 
 export const getConciergeResponse = async (userPrompt: string) => {
+  const apiKey = getApiKey();
+  
+  if (!apiKey) {
+    return "Our apologies, our digital concierge is currently in a meeting. Please call us at +212 661 111 525 for immediate assistance.";
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
+
   try {
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
